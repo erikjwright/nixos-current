@@ -104,8 +104,9 @@
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       '';
       syntaxHighlighting.enable = false;
-      # autosuggestions = true;
+      autosuggestions.enable = true;
       enableCompletion = true;
+      # dotDir = ".config/zsh";
       # completionInit = ''
       #   autoload -Uz compinit && compinit
       #   zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
