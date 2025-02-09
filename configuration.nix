@@ -75,23 +75,26 @@
   console.useXkbConfig = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.erik = {
-    isNormalUser = true;
-    description = "Erik Wright";
-    extraGroups = [
-      "networkmanager"
-      "video"
-      "wheel"
-    ];
-    packages = with pkgs; [ ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.erik = {
+      isNormalUser = true;
+      description = "Erik Wright";
+      extraGroups = [
+        "networkmanager"
+        "video"
+        "wheel"
+      ];
+      packages = with pkgs; [ ];
+    };
   };
-
-  users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.dconf.enable = true;
   programs.firefox.enable = true;
+  programs.htop.enable = true;
   programs.hyprland.enable = true;
   programs.light.enable = true;
   programs = {
